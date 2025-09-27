@@ -140,7 +140,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+# Staticfiles_Dirs teilt django mit wo man static files im development findet
 STATICFILES_DIRS = [BASE_DIR / "static"] 
+# Teilt django mit, wo die static files collected werden sollen wenn man collectstatic laufen lässt
+STATIC_ROOT = os.path.join(BASE_DIR / "staticfiles") 
 
 LOGIN_REDIRECT_URL = 'todolist'
 LOGIN_URL = 'login'
