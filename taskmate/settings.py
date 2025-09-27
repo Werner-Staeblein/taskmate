@@ -15,6 +15,9 @@ import os
 import environ
 env = environ.Env()
 
+print("DJANGO_SECRET_KEY from os.environ:", os.environ.get("DJANGO_SECRET_KEY"))
+
+
 # # commented out for production
 # environ.Env.read_env()
 
