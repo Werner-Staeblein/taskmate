@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Logout {% endblock title %}
+
+{% block content %}
+<div class="container text-center mt-5">
+  <h1 class="mb-4 mt-4">Sie wurden erfolgreich ausgeloggt</h1>
+  <a href="{% url 'login' %}" class="btn btn-primary">Zurück zum Login</a>
+</div>
+{% endblock content %}
