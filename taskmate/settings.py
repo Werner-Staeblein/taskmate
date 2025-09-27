@@ -15,11 +15,14 @@ import os
 import environ
 env = environ.Env()
 
-print("DJANGO_SECRET_KEY from os.environ:", os.environ.get("DJANGO_SECRET_KEY"))
+print("Settings loaded — DJANGO_SECRET_KEY:", os.environ.get("DJANGO_SECRET_KEY"))
+
+PORT = os.environ.get("PORT", "8000")
+print("Listening on port:", PORT)
 
 
- # commented out for production
-# environ.Env.read_env()
+# commented out for production
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
