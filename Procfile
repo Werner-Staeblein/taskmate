@@ -1,1 +1,1 @@
-web: bash -c "python manage.py migrate && gunicorn taskmate.wsgi"
+web: python manage.py collectstatic --noinput && gunicorn taskmate.wsgi
