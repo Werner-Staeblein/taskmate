@@ -21,23 +21,21 @@ print("Settings loaded — DJANGO_SECRET_KEY:", os.environ.get("DJANGO_SECRET_KE
 PORT = os.environ.get("PORT", "8000")
 print("Listening on port:", PORT)
 
-
-# commented out for production
-environ.Env.read_env()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+# Load .env only in development
+if DEBUG:
+    environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "fallback-secret")
-
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -158,7 +156,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 # Staticfiles_Dirs teilt django mit wo man static files im development findet
 STATICFILES_DIRS = [BASE_DIR / "static"] 
 # Teilt django mit, wo die static files collected werden sollen wenn man collectstatic laufen lässt
