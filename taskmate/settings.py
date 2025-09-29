@@ -19,18 +19,18 @@ if DEBUG:
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "fallback-secret")
 
-ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
-    'web-production-85f2e.up.railway.app'
-]
+# ALLOWED_HOSTS = [
+#     '127.0.0.1',
+#     'localhost',
+#     'web-production-85f2e.up.railway.app'
+# ]
 
 ALLOWED_HOSTS = ['*']
 
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-85f2e.up.railway.app'
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://web-production-85f2e.up.railway.app'
+# ]
 
 
 # Application definition
@@ -92,22 +92,22 @@ WSGI_APPLICATION = 'taskmate.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
-import dj_database_url
-
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"),
-        conn_max_age=600,
-        ssl_require=True
-    )
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+     }
 }
+
+
+# import dj_database_url
+
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"),
+#         conn_max_age=600,
+#         ssl_require=True
+#     )
+# }
 
 
 # Password validation
@@ -154,3 +154,10 @@ LOGIN_URL = 'login'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+logger.debug("✅ Django settings loaded successfully")
