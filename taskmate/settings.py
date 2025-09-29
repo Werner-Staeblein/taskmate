@@ -25,6 +25,9 @@ ALLOWED_HOSTS = [
     'web-production-85f2e.up.railway.app'
 ]
 
+ALLOWED_HOSTS = ['*']
+
+
 CSRF_TRUSTED_ORIGINS = [
     'https://web-production-85f2e.up.railway.app'
 ]
