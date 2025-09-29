@@ -39,7 +39,15 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "fallback-secret")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'web-production-85f2e.up.railway.app'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-85f2e.up.railway.app'
+]
 
 
 # Application definition
